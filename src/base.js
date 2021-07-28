@@ -1,3 +1,11 @@
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  var $ = require("jquery");
+}
+
+const { JSDOM } = require( "jsdom" );
+const { window } = new JSDOM( "" );
+const $ = require( "jquery" )( window );
+
 function BaseConnect(config) {
   this.config = config;
   this.inverseTables = BaseHelpers.inverseTables(config.tables);
@@ -1918,3 +1926,14 @@ var BaseHelpers = {
       window.location = "https://www.quickbase.com/up/" + dbid + "/a/r" + rid + "/e" + fid + "/v" + version;
   }
 };
+
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  module.exports = {
+    Base: Base,
+    BaseConnect: BaseConnect
+  };
+}
+else {
+  window.Base = Base;
+  window.BaseConnect = BaseConnect;
+}
