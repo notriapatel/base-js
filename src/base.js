@@ -1,10 +1,8 @@
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  var $ = require("jquery");
+  var { JSDOM } = require( "jsdom" );
+  var { window } = new JSDOM( "" );
+  var $ = require( "jquery" )( window );
 }
-
-const { JSDOM } = require( "jsdom" );
-const { window } = new JSDOM( "" );
-const $ = require( "jquery" )( window );
 
 function BaseConnect(config) {
   this.config = config;
@@ -1930,10 +1928,12 @@ var BaseHelpers = {
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
   module.exports = {
     Base: Base,
-    BaseConnect: BaseConnect
+    BaseConnect: BaseConnect,
+    BaseHelpers: BaseHelpers
   };
 }
 else {
   window.Base = Base;
   window.BaseConnect = BaseConnect;
+  window.BaseHelpers = BaseHelpers;
 }
