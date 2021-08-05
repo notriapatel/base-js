@@ -1,8 +1,8 @@
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-  var { JSDOM } = require( "jsdom" );
-  var { window } = new JSDOM( "" );
-  var $ = require( "jquery" )( window );
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+//   var { JSDOM } = require( "jsdom" );
+//   var { window } = new JSDOM( "" );
+//   var $ = require( "jquery" )( window );
+// }
 
 function BaseConnect(config) {
   this.config = config;
